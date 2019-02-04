@@ -106,9 +106,14 @@ if  which hub > /dev/null; then
     source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
 fi;
 
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_complete &> /dev/null; then
     __git_complete g __git_main
+    __git_complete gco _git_checkout
+    __git_complete gm __git_merge
+    __git_complete gpl _git_pull
 fi;
 
 # Add tab completion for `defaults read|write NSGlobalDomain`

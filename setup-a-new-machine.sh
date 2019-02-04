@@ -224,7 +224,7 @@ git config status.showuntrackedfiles no
 git update-index --untracked-cache
 
 # also this unrelated thing
-git config user.email "paulirish@chromium.org"
+git config user.email "messinger.matt@gmail.com"
 
 
 ##############################################################################################################
@@ -246,6 +246,12 @@ sh .osx
 ##############################################################################################################
 
 
+# Tell system when Xcode utilities live:
+sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+# Set "opendiff" as the default mergetool globally:
+git config --global merge.tool opendiff
+
 
 ##############################################################################################################
 ### symlinks to link dotfiles into ~/
@@ -256,6 +262,10 @@ sh .osx
 
 # symlink it up!
 ./symlink-setup.sh
+
+# if getting bash errors
+sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+chsh -s /usr/local/bin/bash
 
 # add manual symlink for .ssh/config and probably .config/fish
 
