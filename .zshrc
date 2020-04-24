@@ -62,16 +62,15 @@ function zource(){
 }
 
 
-set-window-title() {
-  window_title="\e]0;${${PWD/#"$HOME"/~}/Dropbox\//}\a"
-  echo -ne "$window_title"
-}
+# set-window-title() {
+#   window_title="\e]0;${${PWD/#"$HOME"/~}/Dropbox\//}\a"
+#   echo -ne "$window_title"
+# }
 
 function openall() {
   for folder in */; do code $folder && hyper $folder; done
 }
 
-
-PR_TITLEBAR=''
-set-window-title
-add-zsh-hook precmd set-window-title
+# PR_TITLEBAR=''
+# set-window-title
+# add-zsh-hook precmd set-window-title
