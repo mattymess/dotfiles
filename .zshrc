@@ -1,114 +1,77 @@
-# uncomment to profile prompt startup with zprof
-# zmodload zsh/zprof
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-# history
-SAVEHIST=100000
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="cobalt2"
+# ZSH_THEME="cobalt2-minimal"
+#alias ll="ls -l"
+alias zs="source ~/.zshrc"
+alias gum="git pull upstream master"
+alias gpl="git pull"
+alias gs="git status"
 
-# vim bindings
-bindkey -v
-
-
-fpath=( "$HOME/.zfunctions" $fpath )
-
-
-# antigen time!
-source ~/code/antigen/antigen.zsh
-
-
-######################################################################
-### install some antigen bundles
-
-local b="antigen-bundle"
-
-
-# Don't load the oh-my-zsh's library. Takes too long. No need.
-	# antigen use oh-my-zsh
-
-# Guess what to install when running an unknown command.
-$b command-not-found
-
-# Helper for extracting different types of archives.
-$b extract
-
-# atom editor
-$b atom
-
-# homebrew  - autocomplete on `brew install`
-$b brew
-$b brew-cask
-
-# Tracks your most used directories, based on 'frecency'.
-$b robbyrussell/oh-my-zsh plugins/z
-
-# nicoulaj's moar completion files for zsh -- not sure why disabled.
-# $b zsh-users/zsh-completions src
-
-# Syntax highlighting on the readline
-$b zsh-users/zsh-syntax-highlighting
-
-# history search
-$b zsh-users/zsh-history-substring-search ./zsh-history-substring-search.zsh
-
-# suggestions
-$b tarruda/zsh-autosuggestions
-
-# colors for all files!
-$b trapd00r/zsh-syntax-highlighting-filetypes
-
-# dont set a theme, because pure does it all
-$b mafredri/zsh-async
-$b sindresorhus/pure
-
-# Tell antigen that you're done.
-#antigen apply
-
-###
-#################################################################################################
+# Changed your .gitignore _after_ you have added / committed some files?
+# run `gri` to untrack anything in your updated .gitignore
+# Put this in your .zshrc file
+alias gri="git ls-files --ignored --exclude-standard | xargs -0 git rm -r"
 
 
+# Open all merge conflicts or currently changed files in VS Code
+# Switch out `code` for `subl`, `vim`, `atom` or your editor's CLI
+alias fix="git diff --name-only | uniq | xargs code"
 
-# bind UP and DOWN arrow keys for history search
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+# alias 🖕😏🖕="git push --force"
 
-export PURE_GIT_UNTRACKED_DIRTY=0
+alias "git latest"="git for-each-ref --sort=-committerdate refs/heads/"
 
-# Automatically list directory contents on `cd`.
-auto-ls () {
-	emulate -L zsh;
-	# explicit sexy ls'ing as aliases arent honored in here.
-	hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls
-}
-chpwd_functions=( auto-ls $chpwd_functions )
+# I don't think I use this anymore https://github.com/pindexis/qfc
+# [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
 
-
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
+#  Uses tree - install first:
+# brew install tree
+function t() {
+  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
+  # pass additional args after
+  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
 
-zle -N zle-line-init
+# Take a screenshot every n seconds
+# Fun for making timelapse gifs later
+# run `creep 20` for every 20 seconds
+function creep() {
+    while :; do; echo "📸" $(date +%H:%M:%S); screencapture -x ~/Screenshots/wes/$(date +%s).png; sleep $1; done
+}
+
+# red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git cloudapp node npm wd brew osx extract z zsh-syntax-highlighting zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
 
 
-# history mgmt
-# http://www.refining-linux.org/archives/49/ZSH-Gem-15-Shared-history/
-setopt inc_append_history
-setopt share_history
+function zource(){
+  source ~/.zshrc && -
+}
 
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+set-window-title() {
+  window_title="\e]0;${${PWD/#"$HOME"/~}/Dropbox\//}\a"
+  echo -ne "$window_title"
+}
+
+function openall() {
+  for folder in */; do code $folder && hyper $folder; done
+}
 
 
-# uncomment to finish profiling
-# zprof
-
-
-
-# Load default dotfiles
-source ~/.bash_profile
-
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+PR_TITLEBAR=''
+set-window-title
+add-zsh-hook precmd set-window-title

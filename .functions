@@ -93,11 +93,6 @@ function localip(){
 		sed -r "s/(VLAN Configurations)|==*//g"
 }
 
-# preview csv files. source: http://stackoverflow.com/questions/1875305/command-line-csv-viewer
-function csvpreview(){
-      sed 's/,,/, ,/g;s/,,/, ,/g' "$@" | column -s, -t | less -#2 -N -S
-}
-
 # Extract archives - use: extract <file>
 # Based on http://dotfiles.org/~pseup/.bashrc
 function extract() {
@@ -175,4 +170,11 @@ function nullify() {
 #   Must be in /etc/shells
 shellswitch () {
 	chsh -s $(brew --prefix)/bin/$1
+}
+
+# Scotty game tagger
+game_tag () {
+	cd ~/Dropbox/repos/game_tagger
+	echo "Running: node main.js --game-type $1 --game-url $2"
+	node main.js --game-type $1 --game-url $2
 }

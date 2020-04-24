@@ -60,7 +60,6 @@
 
 # git mergetool
 [merge]
-	tool = opendiff
 	renameLimit = 0
 
 # rewrites of repo paths
@@ -76,7 +75,7 @@
 [url "git@gist.github.com:"]
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
-	
+
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
@@ -109,6 +108,7 @@
     # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
     # https://blog.github.com/2018-04-05-git-217-released/
     colorMoved = zebra
+	external = /Users/matt/bin/git-diff-cmd.sh
 [remote "origin"]
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [stash]
