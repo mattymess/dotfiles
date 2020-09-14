@@ -17,6 +17,8 @@ brew cask install sonos
 brew cask install cloudapp
 brew cask install rocket
 brew cask install zoomus
+brew cask install divvy
+brew cask install alfred
 
 # brew cask install spectacle
 # brew cask install dropbox
