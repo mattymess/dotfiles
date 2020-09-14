@@ -108,9 +108,7 @@
     # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
     # https://blog.github.com/2018-04-05-git-217-released/
     colorMoved = zebra
-	external = /Users/matt/bin/git-diff-cmd.sh
-[remote "origin"]
-	fetch = +refs/heads/*:refs/remotes/origin/*
+	# external = /Users/matt/bin/git-diff-cmd.sh
 [stash]
 	showPatch = true
 [log]

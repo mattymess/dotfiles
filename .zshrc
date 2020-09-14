@@ -1,4 +1,4 @@
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin:/usr/local/opt/python/libexec/bin:$PATH"
 
 fpath=( ~/.zsh-functions "${fpath[@]}" )
 autoload game_tag
@@ -55,7 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cloudapp node npm wd brew osx extract z zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git node npm wd brew osx extract z zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

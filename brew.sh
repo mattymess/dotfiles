@@ -27,7 +27,7 @@ brew install bash-completion
 brew install homebrew/completions/brew-cask-completion
 
 # Install wget with IRI support
-brew install wget --with-iri
+# brew install wget --with-iri
 
 # Install more recent versions of some OS X tools
 brew install vim --with-override-system-vi
@@ -40,41 +40,41 @@ brew install homebrew/dupes/screen
 brew install z
 
 # run this script when this file changes guy.
-brew install entr
+# brew install entr
 
 # github util. gotta love `hub fork`, `hub create`, `hub checkout <PRurl>`
 brew install hub
 
 
 # mtr - ping & traceroute. best.
-brew install mtr
+# brew install mtr
 
     # allow mtr to run without sudo
-    mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//') #  e.g. `/Users/matt/.homebrew/Cellar/mtr/0.86`
-    sudo chmod 4755 $mtrlocation/sbin/mtr
-    sudo chown root $mtrlocation/sbin/mtr
+    # mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//') #  e.g. `/Users/matt/.homebrew/Cellar/mtr/0.86`
+    # sudo chmod 4755 $mtrlocation/sbin/mtr
+    # sudo chown root $mtrlocation/sbin/mtr
 
 
 # Install other useful binaries
-brew install the_silver_searcher
-brew install fzf
+# brew install the_silver_searcher
+# brew install fzf
 
 brew install git
-brew install imagemagick --with-webp
+brew install imagemagick
 brew install node # This installs `npm` too using the recommended installation method
-brew install pv
-brew install rename
+# brew install pv
+# brew install rename
 brew install tree
-brew install zopfli
-brew install ffmpeg --with-libvpx
+# brew install zopfli
+# brew install ffmpeg --with-libvpx
 brew install antigen
 
-brew install terminal-notifier
+# brew install terminal-notifier
 
-brew install android-platform-tools
-brew install pidcat   # colored logcat guy
+# brew install android-platform-tools
+# brew install pidcat   # colored logcat guy
 
-brew install ncdu # find where your diskspace went
+# brew install ncdu # find where your diskspace went
 
 brew install zsh
 
