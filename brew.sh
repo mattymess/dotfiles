@@ -58,10 +58,10 @@ brew install hub
 # Install other useful binaries
 # brew install the_silver_searcher
 # brew install fzf
-
+brew install yarn
 brew install git
 brew install imagemagick
-brew install node # This installs `npm` too using the recommended installation method
+# brew install node # Installed with nvm in setup-a-new-machine
 # brew install pv
 # brew install rename
 brew install tree

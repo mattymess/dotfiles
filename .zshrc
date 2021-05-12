@@ -1,7 +1,11 @@
 export PATH="$HOME/Library/Python/2.7/bin:/usr/local/opt/python/libexec/bin:$PATH"
 
 fpath=( ~/.zsh-functions "${fpath[@]}" )
-autoload game_tag
+autoload -Uz $fpath[1]/*(.:t)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh

@@ -171,10 +171,3 @@ function nullify() {
 shellswitch () {
 	chsh -s $(brew --prefix)/bin/$1
 }
-
-# Scotty game tagger
-game_tag () {
-	cd ~/Dropbox/repos/game_tagger
-	echo "Running: node main.js --game-type $1 --game-url $2"
-	node main.js --game-type $1 --game-url $2
-}
