@@ -1,11 +1,8 @@
-export PATH="$HOME/Library/Python/2.7/bin:/usr/local/opt/python/libexec/bin:$PATH"
-
-fpath=( ~/.zsh-functions "${fpath[@]}" )
-autoload -Uz $fpath[1]/*(.:t)
+export PATH="$HOME/.local/bin:$HOME/Library/Python/2.7/bin:/usr/local/opt/python/libexec/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh

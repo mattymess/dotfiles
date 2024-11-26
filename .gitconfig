@@ -113,3 +113,6 @@
 	showPatch = true
 [log]
 	date = relative
+[user]
+	name = Matt Messinger
+	email = messinger.matt@gmail.com

@@ -138,7 +138,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ##############################################################################################################
 ### nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 nvm install node
 
 ##############################################################################################################
@@ -235,10 +235,6 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 sudo sysctl kern.maxvnodes=$((512*1024))
 
 echo kern.maxvnodes=$((512*1024)) | sudo tee -a /etc/sysctl.conf
-
-# speed up git status (to run only in chromium repo)
-git config status.showuntrackedfiles no
-git update-index --untracked-cache
 
 # also this unrelated thing
 git config user.email "messinger.matt@gmail.com"
