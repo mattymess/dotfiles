@@ -30,9 +30,12 @@ cp -Rp \
     ~/.extra ~/.extra.fish \
     ~/.gitconfig.local \
     ~/.gnupg \
+    ~/.hyper.js   \
+    ~/.hyper-plugins   \
     ~/.nano \
     ~/.nanorc \
     ~/.netrc \
+    ~/.p10k.zsh  \
     ~/.ssh \
     ~/.z   \
         ~/migration/home
@@ -144,9 +147,7 @@ nvm install node
 ##############################################################################################################
 ### homebrew!
 
-# (if your machine has /usr/local locked down (like google's), you can do this to place everything in ~/.homebrew
-mkdir $HOME/.homebrew && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
-export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install all the things
 ./brew.sh
@@ -188,12 +189,6 @@ git clone https://github.com/rupa/z.git ~/code/z
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile
 
-
-# github.com/thebitguru/play-button-itunes-patch
-# disable itunes opening on media keys
-git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-button-itunes-patch
-
-
 # my magic photobooth symlink -> dropbox. I love it.
 # 	 + first move Photo Booth folder out of Pictures
 # 	 + then start Photo Booth. It'll ask where to put the library.
@@ -204,7 +199,6 @@ git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-but
 
 # for the c alias (syntax highlighted cat)
 sudo easy_install Pygments
-
 
 # change to bash 4 (installed by homebrew)
 BASHPATH=$(brew --prefix)/bin/bash
@@ -225,16 +219,6 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 
 ###
 ##############################################################################################################
-
-
-
-# improve perf of git inside of chromium checkout
-# https://chromium.googlesource.com/chromium/src/+/master/docs/mac_build_instructions.md
-
-# default is (257*1024)
-sudo sysctl kern.maxvnodes=$((512*1024))
-
-echo kern.maxvnodes=$((512*1024)) | sudo tee -a /etc/sysctl.conf
 
 # also this unrelated thing
 git config user.email "messinger.matt@gmail.com"

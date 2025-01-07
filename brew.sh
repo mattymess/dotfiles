@@ -30,11 +30,9 @@ brew install homebrew/completions/brew-cask-completion
 # brew install wget --with-iri
 
 # Install more recent versions of some OS X tools
-brew install vim --with-override-system-vi
-brew install homebrew/dupes/nano
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install vim 
+brew install nano
+brew install grep
 
 # z hopping around folders
 brew install z
@@ -43,8 +41,9 @@ brew install z
 # brew install entr
 
 # github util. gotta love `hub fork`, `hub create`, `hub checkout <PRurl>`
+brew install gh
 brew install hub
-
+brew install git-delta
 
 # mtr - ping & traceroute. best.
 # brew install mtr
@@ -64,10 +63,10 @@ brew install imagemagick
 # brew install node # Installed with nvm in setup-a-new-machine
 # brew install pv
 # brew install rename
-brew install tree
+# brew install tree
 # brew install zopfli
 # brew install ffmpeg --with-libvpx
-brew install antigen
+# brew install antigen
 
 # brew install terminal-notifier
 
@@ -75,8 +74,6 @@ brew install antigen
 # brew install pidcat   # colored logcat guy
 
 # brew install ncdu # find where your diskspace went
-
-brew install zsh
 
 # Remove outdated versions from the cellar
 brew cleanup

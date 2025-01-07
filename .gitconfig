@@ -22,15 +22,26 @@
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+	# https://github.com/dandavison/delta
+	pager = delta
 
-[pager]
-	# insanely beautiful diffs ==> npm install -g diff-so-fancy
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
+[delta]
+	max-line-length = 700
+	# max-line-distance = 0.3 # better word-diff?
+	syntax-theme = base16
+	hyperlinks = true # i filed https://github.com/dandavison/delta/issues/362 but in 2022 i can't see brokenness in the issue nor repro weirdness. but i installed latest `less` anyway
+	                  # oh i found it. it doubles up the sha and adds some `8;;` at the end.
+					  # to fix.... install latest less (`less -V` should be >= v570). shouldn't need to set DELTA_PAGER.
+	# line-numbers = true # seems nice until you want to copypaste and they're there…
+	# navigate = true # eh. not great with short diffs.
+
+	file-style = bold yellow ul
+	file-decoration-style = yellow ol ul
+	hunk-header-decoration-style = blue
+	hunk-header-line-number-style = purple bold
 
 [interactive]
-  # disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
-	# diffFilter = "diff-so-fancy"
+	diffFilter = delta --color-only --features=interactive
 
 # so much color
 [color]
@@ -61,6 +72,7 @@
 # git mergetool
 [merge]
 	renameLimit = 0
+	tool = opendiff
 
 # rewrites of repo paths
 [url "git@github.com:"]
@@ -102,6 +114,7 @@
 
 [fetch]
 	prune = true
+
 [diff]
 	compactionHeuristic = true
 
@@ -114,5 +127,5 @@
 [log]
 	date = relative
 [user]
-	name = Matt Messinger
+	name = mattymess
 	email = messinger.matt@gmail.com
